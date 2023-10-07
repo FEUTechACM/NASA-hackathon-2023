@@ -1,40 +1,9 @@
-import NextAuthProvider from "@/components/(app)/provider";
-import Nav from "@/components/(website)/layout/nav";
-import Side from "@/components/(website)/layout/side";
 import { ReduxProviders } from "@/utils/redux/provider";
-import type { Metadata } from "next";
-import localFont from "next/font/local";
-import "public/media/icons/fontello-84cd01f8/css/fontello.css";
 import { Analytics } from "@vercel/analytics/react";
+import type { Metadata } from "next";
+import "public/media/icons/fontello-84cd01f8/css/fontello.css";
 import "./globals.css";
-const f_f1s = localFont({
-	src: [
-		{
-			path: "../../public/fonts/f1-secuencia-quad-ffp/font.ttf",
-			style: "normal",
-		},
-	],
-	variable: "--font-f1s",
-});
-const f_hae = localFont({
-	src: [
-		{
-			path: "../../public/fonts/human-alter-ego/font.ttf",
-			style: "normal",
-		},
-	],
-	variable: "--font-hae",
-});
 
-const f_ot = localFont({
-	src: [
-		{
-			path: "../../public/fonts/over-there/font.ttf",
-			style: "normal",
-		},
-	],
-	variable: "--font-ot",
-});
 const mData = {
 	app_name: "FEU Tech ACM-X",
 	title: "FEU Tech ACM-X | Coding Chaos In Digital Dystopia",
@@ -166,20 +135,14 @@ interface Props {
 const RootLayout: React.FC<Props> = ({ children }) => {
 	return (
 		<html lang="en">
-			<NextAuthProvider>
-				<ReduxProviders>
-					<body
-						className={`${f_f1s.variable} ${f_hae.variable} ${f_ot.variable} text-base sm:text-lg lg:text-xl`}
-					>
-						<>
-							<Nav />
-							<Side />
-							{children}
-							<Analytics />
-						</>
-					</body>
-				</ReduxProviders>
-			</NextAuthProvider>
+			<ReduxProviders>
+				<body>
+					<>
+						{children}
+						<Analytics />
+					</>
+				</body>
+			</ReduxProviders>
 		</html>
 	);
 };
