@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://acmx.vercel.app
+
+# Sitemaps
+Sitemap: https://acmx.vercel.app/sitemap.xml
